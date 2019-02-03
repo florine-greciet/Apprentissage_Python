@@ -16,7 +16,7 @@ python3 monScript.py # exécute le script en python 3
 ## Exécuter un script sous windows
 
 ouvrir un script avec **IDLE** et faire `run` ou `F5`
-
+Sinon, glisser le fichier dans la ligne de commande pour l'exécuter
 ----
 
 ## Les différences Python2 vs Python3
@@ -86,7 +86,7 @@ type(texte) # str
 annee = int(texte)
 type(annee) # int
 ```
-La fonction `randint(a,b)` de la librairie `random` permet de générer un nombre entier aléatoire entre a et b inclus
+La fonction `randint(a,b)` de la bibliothèque `random` permet de générer un nombre entier aléatoire entre a et b inclus
 ```py
 import random
 nombreAleatoire = random.randint(1,5)
@@ -98,7 +98,30 @@ nombreAleatoire = randint(1,5)
 print(nombreAleatoire)
 ```
 
+La fonction `append(a)` permet d'ajouter un élément à une liste.
+
+La fonction `range(n)` crée un tableau de n élément allant de 0 à n-1
+```py
+for i in range(10):
+    print(i)
+# [0,1,2,3,4,5,6,7,8,9]
+```
+- On peut lui attribuer deux paramètres `range(n1,n2)` la fonction créera alors un tableau allant de n1 à n2-1
+```py
+for i in range(1,10):
+    print(i)
+# [1,2,3,4,5,6,7,8,9]
+```
+- On peut lui ajouter un troisième paramètre qui correspondra au pas.
+```py
+for i in range(2,10,2):
+    print(i)
+# [2,4,6,8]
+```
+
 ## Les conditions
+Les conditions ne nécessitent pas de parenthèses ou d'accolades. Il faut cependant les ":" à la fin de la condition
+puis indenter tout ce qui se trouve à l'intérieur de la condition.
 
 ```py
 if nb > 0:
@@ -195,4 +218,50 @@ while 1: # 1 est toujours vrai -> boucle infinie
     if lettre == "Q":
         print("Fin de la boucle")
         break
+```
+
+## Les listes 
+- **List** collection dans lequel on peut stocker des valeurs
+
+Création d'un tableau :
+```py
+my_integers = [1, 2, 3, 4, 5]
+``` 
+
+Récupération des informations de la liste :
+```py
+my_integers_num1 = my_integers[0] #Les indices commencent à 0
+``` 
+
+Ajout d'un élément dans une liste :
+- **Apend** fonction qui permet d'ajouter un élement à une liste
+```py
+bookshelf = [] #Création d'une liste vide
+bookshelf.append("The Effective Engineer")
+print(bookshelf[0])
+``` 
+
+## Les imports de bibliothèque 
+
+- `import lib` importe toute la librairie `lib`
+```py
+import random 
+nombre_al = random.randint(1,2)
+```
+
+- `import lib as lib2` permet de renommer la bibliothèque lib en `lib2`
+```py
+import random as r
+nombre_al = r.randint(1,2)
+```
+- `from lib import fct` permet d'importer une fonction `fct` de la bibliothèque `lib`
+```py
+from random import randint 
+nombre_al = randint(1,2)
+```
+
+- `from lib import *` permet d'importer toutes les fonctions de la bibliothèque `lib`
+```py
+from random import *
+nombre_al = randint(1,2)
 ```
