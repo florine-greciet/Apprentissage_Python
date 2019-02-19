@@ -119,6 +119,8 @@ for i in range(2,10,2):
 # [2,4,6,8]
 ```
 
+La fonction `format` 
+
 ## Les conditions
 Les conditions ne nécessitent pas de parenthèses ou d'accolades. Il faut cependant les ":" à la fin de la condition
 puis indenter tout ce qui se trouve à l'intérieur de la condition.
@@ -160,7 +162,6 @@ else:
 
 ## Les boucles
 
-
 ### La boucle while
 ```py
 while condition:
@@ -176,10 +177,9 @@ while i<10:
     i+=1
 ```
 
-
 ### La boucle for
 
-elle permet de parcourir des séquences de plusieur données
+Elle permet de parcourir des séquences de plusieur données
 ```py
 for element in sequence:
 ```
@@ -223,23 +223,102 @@ while 1: # 1 est toujours vrai -> boucle infinie
 ## Les listes 
 - **List** collection dans lequel on peut stocker des valeurs
 
-Création d'un tableau :
+- Création d'un tableau :
 ```py
 my_integers = [1, 2, 3, 4, 5]
 ``` 
 
-Récupération des informations de la liste :
+- Récupération d'un élément dans une liste : 
+On récupère la longueur d'une liste à l'aide de la fonction `len` :
+```py
+my_integers = [1, 2, 3, 4, 5]
+long_liste = len(my_integers)
+```
+
+Les indices commencent à 0 en python. Pour récupérer un élément d'une liste : 
 ```py
 my_integers_num1 = my_integers[0] #Les indices commencent à 0
 ``` 
+Pour récupérer le dernier élément d'une liste on peut faire :
+```py
+my_integers_num5 = my_integers[-1] 
+my_integers_num5 = my_integers[len(my_integers)-1]
+``` 
 
-Ajout d'un élément dans une liste :
-- **Apend** fonction qui permet d'ajouter un élement à une liste
+- Ajout d'un élément dans une liste :
+Il existe plusieurs fonction pour ajouter un élément dans une liste :
+ **Apend** fonction qui permet d'ajouter un élement à une liste
 ```py
 bookshelf = [] #Création d'une liste vide
 bookshelf.append("The Effective Engineer")
 print(bookshelf[0])
 ``` 
+
+ **insert** fonction qui permet d'ajouter un élément à une liste à une position spécifiée
+```py
+bookshelf = ["Jacques","Pierre"] 
+bookshelf.insert(1,"Kevin")
+print(bookshelf) #Kévin est en deuxième position
+``` 
+ **extend** fonction qui permet d'ajouter une liste à une autre liste 
+```py
+#Pour ajouter une liste à une autre liste 
+bookshelf = ["Jacques","Pierre"] 
+bookshelf.extend(["Bertrand","John"])
+print(bookshelf)
+# On peut faire un += à la place de liste.extend
+``` 
+- Suppression d'un élément d'une liste 
+
+**remove** fonction qui permet de supprimer de la liste la valeur donnée en paramètre de la fonction
+```py
+liste2 = ["Pierre","Paul"]
+liste2.remove("Pierre")
+```
+
+**pop** fonction qui prend l'indice de l'élément que l'on souhaite supprimer dans la liste. Cette fonction retourne le ou les éléments supprimés.
+```py
+liste2 = ["Pierre","Paul"]
+liste_elmt_sup = liste2.pop(1)
+print(liste2)
+print(liste_elmt_sup)
+```
+
+**del** équivalent de remove. Prend en paramètre le numéro de l'indice à supprimer :
+```py
+liste2 = ["Pierre","Paul"]
+del liste2[0]
+print(liste2)
+```
+
+- Vérifier si un élément est présent dans une liste :
+```py 
+liste_abc = ["a","b","c"]
+"a" in liste_abc
+```
+
+- Itération au sein d'une liste : 
+```py
+liste_it = [1,2,3,4]
+for i in liste_it:
+    print(i)
+```
+
+- Tri ou inversion de liste : 
+
+**sort** fonction qui permet de trier une liste 
+
+```py
+liste_tri = [4,5,8,2,0]
+liste_tri.sort() # permet de trier la liste
+```
+
+**reverse** fonction qui inverse le sens d'une liste. Elle peut également être utilisée comme paramètre de la fonction sort
+
+```py
+liste_tri.reverse()
+liste_tri.sort(reverse=True)
+```
 
 ## Les imports de bibliothèque 
 
